@@ -23,7 +23,7 @@ module.exports = function(repo_url) {
   } else {
     if (!isUrl(repo_url)) return null
     var parsedURL = url.parse(repo_url)
-    if (parsedURL.hostname != "github.com") return null
+    if (parsedURL.hostname != "bitbucket.org") return null
     var parts = parsedURL.pathname.match(/^\/([\w-_]+)\/([\w-_\.]+)/)
     if (!parts) return null
     obj.user = parts[1]
@@ -31,13 +31,13 @@ module.exports = function(repo_url) {
     obj.branch = "master"
   }
 
-  obj.tarball_url = util.format("https://api.github.com/repos/%s/%s/tarball/%s", obj.user, obj.repo, obj.branch)
+  obj.tarball_url = util.format("https://bitbucket.org/%s/%s/get/%s.tar.gz", obj.user, obj.repo, obj.branch)
 
   if (obj.branch === "master") {
-    obj.https_url = util.format("https://github.com/%s/%s", obj.user, obj.repo)
+    obj.https_url = util.format("https://bitbucket.org/%s/%s", obj.user, obj.repo)
     obj.travis_url = util.format("https://travis-ci.org/%s/%s", obj.user, obj.repo)
   } else {
-    obj.https_url = util.format("https://github.com/%s/%s/tree/%s", obj.user, obj.repo, obj.branch)
+    obj.https_url = util.format("https://bitbucket.org/%s/%s/branch/%s", obj.user, obj.repo, obj.branch)
     obj.travis_url = util.format("https://travis-ci.org/%s/%s?branch=%s", obj.user, obj.repo, obj.branch)
   }
 

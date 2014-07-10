@@ -1,26 +1,28 @@
-# github-url-to-object  [![Build Status](https://travis-ci.org/zeke/github-url-to-object.png?branch=master)](https://travis-ci.org/zeke/github-url-to-object)
+# bitbucket-url-to-object  [![Build Status](https://travis-ci.org/zeke/bitbucket-url-to-object.png?branch=master)](https://travis-ci.org/zeke/bitbucket-url-to-object)
 
 A node module that extracts useful properties like `user` and
-`repo` from various flavors of GitHub URLs.
+`repo` from various flavors of bitbucket URLs.
+
+There's also a GitHub equivalent to this library: [github-url-to-object](https://github.com/zeke/github-url-to-object).
 
 ## Installation
 
 ```sh
-npm install github-url-to-object --save
+npm install bitbucket-url-to-object --save
 ```
 
 ## Usage
 
-Pass whatever flavor of github URL you like:
+Pass whatever flavor of bitbucket URL you like:
 
 ```js
-var gh = require('github-url-to-object')
+var bb = require('bitbucket-url-to-object')
 
-gh('monkey/business')
-gh('https://github.com/monkey/business')
-gh('https://github.com/monkey/business.git')
-gh('http://github.com/monkey/business')
-gh('git://github.com/monkey/business.git')
+bb('monkey/business')
+bb('https://bitbucket.org/monkey/business')
+bb('https://bitbucket.org/monkey/business.git')
+bb('http://bitbucket.org/monkey/business')
+bb('git://bitbucket.org/monkey/business.git')
 ```
 
 Here's what you'll get:
@@ -30,8 +32,8 @@ Here's what you'll get:
   user: 'monkey',
   repo: 'business',
   branch: 'master',
-  https_url: 'https://github.com/monkey/business',
-  tarball_url: 'https://api.github.com/repos/monkey/business/tarball'
+  https_url: 'https://bitbucket.org/monkey/business',
+  tarball_url: 'https://bitbucket.org/monkey/business/get/master.tar.gz'
   travis_url: 'https://travis-ci.org/monkey/business',
 }
 ```
@@ -39,18 +41,18 @@ Here's what you'll get:
 The shorthand format lets you specify a branch:
 
 ```js
-  gh('monkey/business#nachos')
+  bb('monkey/business#nachos')
 {
   user: 'monkey',
   repo: 'business',
   branch: 'nachos',
-  https_url: 'https://github.com/monkey/business/tree/nachos',
-  tarball_url: 'https://api.github.com/repos/monkey/business/tarball/nachos'
+  https_url: 'https://bitbucket.org/monkey/business/tree/nachos',
+  tarball_url: 'https://bitbucket.org/monkey/business/get/nachos.tar.gz'
   travis_url: 'https://travis-ci.org/monkey/business',
 }
 ```
 
-If you provide a non-github URL or a falsy value, you'll get `null`.
+If you provide a non-bitbucket URL or a falsy value, you'll get `null`.
 
 ## Test
 

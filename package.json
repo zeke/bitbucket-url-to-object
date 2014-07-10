@@ -1,24 +1,25 @@
 {
-  "name": "github-url-to-object",
-  "version": "0.7.0",
-  "description": "Extract user, repo, and other interesting properties from GitHub URLs",
+  "name": "bitbucket-url-to-object",
+  "version": "0.1.0",
+  "description": "Extract user, repo, and other interesting properties from Bitbucket URLs",
   "main": "index.js",
   "scripts": {
+    "bundle": "bin/bundle",
     "test": "mocha"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/zeke/github-url-to-object"
+    "url": "https://github.org/zeke/bitbucket-url-to-object"
   },
   "keywords": [
-    "github",
+    "bitbucket",
     "url",
     "repo"
   ],
   "author": "zeke",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zeke/github-url-to-object/issues"
+    "url": "https://github.org/zeke/bitbucket-url-to-object/issues"
   },
   "dependencies": {
     "is-url": "^1.1.0"
