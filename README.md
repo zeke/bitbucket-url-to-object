@@ -19,6 +19,7 @@ Pass whatever flavor of bitbucket URL you like:
 var bb = require('bitbucket-url-to-object')
 
 bb('monkey/business')
+bb('bitbucket:monkey/business')
 bb('https://bitbucket.org/monkey/business')
 bb('https://bitbucket.org/monkey/business.git')
 bb('http://bitbucket.org/monkey/business')

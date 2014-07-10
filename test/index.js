@@ -28,6 +28,35 @@ describe("bitbucket-url-to-object", function() {
 
   })
 
+  describe("mediumhand", function(){
+
+    it("supports bitbucket:user/repo style", function(){
+      var obj = bb("user/repo#branch")
+      assert.equal(obj.user, 'user')
+      assert.equal(obj.repo, 'repo')
+    })
+
+    it("supports bitbucket:user/repo#branch style", function(){
+      var obj = bb("user/repo#branch")
+      assert.equal(obj.user, 'user')
+      assert.equal(obj.repo, 'repo')
+      assert.equal(obj.branch, 'branch')
+    })
+
+    it("defaults to master branch", function(){
+      var obj = bb("bitbucket:user/repo")
+      assert.equal(obj.user, 'user')
+      assert.equal(obj.repo, 'repo')
+      assert.equal(obj.branch, 'master')
+    })
+
+    it("rejects github", function(){
+      var obj = bb("github:user/repo")
+      assert.equal(obj, null)
+    })
+
+  })
+
   describe("oldschool", function(){
 
     it("supports git@ URLs", function() {
