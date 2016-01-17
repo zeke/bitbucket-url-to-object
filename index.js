@@ -37,6 +37,7 @@ module.exports = function(repo_url) {
   }
 
   obj.tarball_url = util.format("https://bitbucket.org/%s/%s/get/%s.tar.gz", obj.user, obj.repo, obj.branch)
+  obj.api_url = util.format("https://api.bitbucket.org/2.0/repositories/%s/%s", obj.user, obj.repo)
 
   if (obj.branch === "master") {
     obj.https_url = util.format("https://bitbucket.org/%s/%s", obj.user, obj.repo)
