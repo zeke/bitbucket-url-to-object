@@ -139,6 +139,10 @@ describe("bitbucket-url-to-object", function() {
       assert.equal(obj.tarball_url, "https://bitbucket.org/sikelianos/ord/get/master.tar.gz")
     })
 
+    it("api_url", function() {
+      assert.equal(obj.api_url, "https://api.bitbucket.org/2.0/repositories/sikelianos/ord")
+    })
+
     it("https_url", function() {
       assert.equal(obj.https_url, "https://bitbucket.org/sikelianos/ord")
     })
